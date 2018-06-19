@@ -13,13 +13,27 @@ class ApplicationController < Sinatra::Base
     erb :index
   end
 
+  get '/signup' do
+    erb :'users/signup'
+  end
+
+  post '/signup' do
+    redirect '/teas'
+  end
+
   get '/login' do
     erb :'users/login'
   end
 
-  get '/signup' do
-    erb :'users/signup'
+  post '/login' do
+    redirect '/teas'
   end
+
+  get '/teas' do
+    erb :'teas/index'
+  end
+
+
 
 
 
