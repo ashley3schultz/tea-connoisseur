@@ -6,32 +6,32 @@
   <ul>
     <h2>Black Teas</h2>
     <%Tea.type("black").each do |t|%>
-      <li><%=t.name if t.type.downcase == "black"%></li>
+      <li><a href="/teas/<%=t.id%>"><%=t.name%></a></li>
     <%end%>
 
     <h2>Green Teas</h2>
     <%Tea.type("green").each do |t|%>
-      <li><%=t.name%></li>
+      <li><a href="/teas/<%=t.id%>"><%=t.name%></a></li>
     <%end%>
 
     <h2>Oolong Teas</h2>
     <%Tea.type("oolong").each do |t|%>
-      <li><%=t.name%></li>
+      <li><a href="/teas/<%=t.id%>"><%=t.name%></a></li>
     <%end%>
 
     <h2>Puerh Teas</h2>
     <%Tea.type("puerh").each do |t|%>
-      <li><%=t.name%></li>
+      <li><a href="/teas/<%=t.id%>"><%=t.name%></a></li>
     <%end%>
 
     <h2>White Teas</h2>
     <%Tea.type("white").each do |t|%>
-      <li><%=t.name%></li>
+      <li><a href="/teas/<%=t.id%>"><%=t.name%></a></li>
     <%end%>
 
     <h2>Yellow Teas</h2>
     <%Tea.type("yellow").each do |t|%>
-      <li><%=t.name%></li>
+      <li><a href="/teas/<%=t.id%>"><%=t.name%></a></li>
     <%end%>
   </ul>
 </div>
