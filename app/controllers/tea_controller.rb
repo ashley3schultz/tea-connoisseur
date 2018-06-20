@@ -1,0 +1,3 @@
+class TeaController < ApplicationController
+
+end
