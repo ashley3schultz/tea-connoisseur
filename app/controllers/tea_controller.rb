@@ -1,31 +1,56 @@
 class TeaController < ApplicationController
 
-  get "/" do
-    erb :index
-  end
-
   get '/teas' do
-    erb :'teas/index'
+    if logged_in?
+      erb :'teas/index'
+    else
+      redirect '/login'
+    end
   end
 
   get '/teas/new' do
-    erb :'teas/new'
+    if logged_in?
+      erb :'teas/new'
+    else
+      redirect '/login'
+    end
   end
 
   post '/teas' do
-    redirect '/teas/#{@tea.id}'
+    if logged_in?
+      @tea = Tea.create(params)
+      redirect '/teas/#{@tea.id}'
+    else
+      redirect '/login'
+    end
   end
 
   get '/teas/:id/edit' do
-    erb :'teas/edit'
+    if logged_in?
+      erb :'teas/edit'
+    else
+      redirect '/login'
+    end
   end
 
   post '/teas/:id' do
-    redirect '/teas/#{@tea.id}'
+    if logged_in? && owner?
+      #### add owner check
+      @tea  Tea.find(params[:id])
+      @tea.update(params)
+      redirect '/teas/#{@tea.id}'
+    else
+      redirect '/login'
+    end
   end
 
   get '/teas/:id' do
-    erb :'teas/show'
+    Tea.find(params[:id])
+    if logged_in?
+      erb :'teas/show'
+    else
+      redirect '/login'
+    end
   end
 
 end
