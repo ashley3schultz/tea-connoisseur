@@ -2,6 +2,11 @@
   <h1>Welcome, <%=current_user.username%> </h1>
   <em><h2>What have you been drinking?</h2></em>
 </div>
+
+<div class="menu">
+  <a href="/users/<%=current_user.id%>"><button type="button" name="button" class="button"><h3>My Profile</h3></button></a>
+  <a href="/teas/new"><button type="button" name="button" class="button"><h3>Add New Tea</h3></button></a>
+</div>
 <div class="teas">
   <ul>
     <h2>Black Teas</h2>

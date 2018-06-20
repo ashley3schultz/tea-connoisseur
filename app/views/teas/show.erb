@@ -1,0 +1,18 @@
+<div class="header">
+  <h1><%=current_user%></h1>
+  <em><h2>The Place Where Tea Enthusiast Meet</h2></em>
+</div>
+
+<h1><%=@tea.name%></h1>
+<em><h2><%=@tea.aka%></h2></em>
+<h3><%=@tea.type%></h3>
+<p><%=@tea.details%></p>
+
+<div class="tea posts">
+  <h3>posts</h3>
+  <ol>
+    <% @tea.posts.each do |p| %>
+      <li><a href="/posts/<%= p.id %>"><h3><%=p.contenet%></h3><br></a><a href="/users/<%=p.user_id%>"><%=p.user.username%></a></li>
+    <%end%>
+  </ol>
+</div>

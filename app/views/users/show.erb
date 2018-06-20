@@ -3,24 +3,30 @@
   <em><h2>The Place Where Tea Enthusiast Meet</h2></em>
 </div>
 
-<h3>Teas</h3>
-<ol>
-  <% c@user.teas.each do |t| %>
-    <li><a href="/teas/<%= t.id %>"><h3><%= "#{t.name} - #{t.posts.size} posts" %></h3></a></li>
-  <%end%>
-</ol>
+<div class="users teas">
+  <h3>Teas</h3>
+  <ol>
+    <% c@user.teas.each do |t| %>
+      <li><a href="/teas/<%= t.id %>"><h3><%= "#{t.name} - #{t.posts.size} posts" %></h3></a></li>
+    <%end%>
+  </ol>
+</div>
 
-<h3>posts</h3>
-<ol>
-  <% @user.posts.each do |p| %>
-    <% t = Tea.find(p.tea_id) %>
-    <li><a href="/teas/<%= t.id %>"><h3><%=t.name%></h3><br></a><a href="/posts/<%=p.id%>"><%=p.content%></a></li>
-  <%end%>
-</ol>
+<div class="users posts">
+  <h3>posts</h3>
+  <ol>
+    <% @user.posts.each do |p| %>
+      <% t = Tea.find(p.tea_id) %>
+      <li><a href="/teas/<%= t.id %>"><h3><%=t.name%></h3><br></a><a href="/posts/<%=p.id%>"><%=p.content%></a></li>
+    <%end%>
+  </ol>
+</div>
 
+<div class="users connections">
 <h3>Connections</h3>
 <ol>
   <% @user.friends.each do |f| %>
     <li><a href="/users/<%= f.id %>"><h3><%=f.username%></h3></li>
   <%end%>
 </ol>
+</div>

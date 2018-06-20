@@ -27,10 +27,10 @@ class UserController < ApplicationController
   end
 
   post '/login' do
-      @user = User.find_by(username: params[:username])
-      @user.authenticate(params[:password])
-      session[:user_id] = @user.id
-      redirect '/teas'
+    @user = User.find_by(username: params[:username])
+    @user.authenticate(params[:password])
+    session[:user_id] = @user.id
+    redirect '/teas'
   end
 
   get '/logout' do
@@ -39,7 +39,7 @@ class UserController < ApplicationController
   end
 
   get '/users/:id' do
-    #@user = User.find(params[:id])
+    @user = User.find(params[:id])
     erb :'users/show'
   end
 
