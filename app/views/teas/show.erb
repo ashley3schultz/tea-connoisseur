@@ -3,6 +3,13 @@
   <em><h2>The Place Where Tea Enthusiast Meet</h2></em>
 </div>
 
+<% if @tea.user_id == current_user.id %>
+  <div class="owner menu">
+  <a href="/teas/<%=@tea.id%>/edit"><button type="button" name="button" class="button"><h3>Edit Tea</h3></button></a>
+  <a href="/teas/<%=@tea.id%>/delete"><button type="button" name="button" class="button"><h3>Delete Tea</h3></button></a>
+  </div>
+<% end %>
+
 <h1><%=@tea.name%></h1>
 <em><h2><%=@tea.aka%></h2></em>
 <h3><%=@tea.type%></h3>
@@ -13,6 +20,21 @@
   <ol>
     <% @tea.posts.each do |p| %>
       <li><a href="/posts/<%= p.id %>"><h3><%=p.contenet%></h3><br></a><a href="/users/<%=p.user_id%>"><%=p.user.username%></a></li>
+      <% if p.user_id == current_user.id %>
+        <div class="owner menu">
+        <a href="/posts/<%=p.id%>/edit"><button type="button" name="button" class="button"><h3>Edit Post</h3></button></a>
+        <a href="/posts/<%=p.id%>/delete"><button type="button" name="button" class="button"><h3>Delete Post</h3></button></a>
+        </div>
+      <% end %>
     <%end%>
   </ol>
 </div>
+
+<form class="form" action="/posts" method="post">
+  <label><%=current_user.username%></label>
+  <label name="tea" value"<%=@tea%>"></label>
+  <input type="text" name="tea" value"<%=@tea%>"required="true"><br>
+  <label for="content"><h3>Content:</h3></label>
+  <input type="text" name="content" required="true"><br>
+  <h3><input type="submit" value="Add Post"></h3>
+</form>
