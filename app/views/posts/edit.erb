@@ -1,0 +1,8 @@
+<form class="form" action="/posts/<%=@post.id%>" method="post">
+  <label><%=current_user.username%></label>
+  <label name="tea" value"<%=@tea%>"></label>
+  <input type="text" name="tea" value"<%=@tea%>"required="true"><br>
+  <label for="content"><h3>Content:</h3></label>
+  <input type="text" name="content" value="<%= @post.content %>" required="true"><br>
+  <h3><input type="submit" value="Update Post"></h3>
+</form>
