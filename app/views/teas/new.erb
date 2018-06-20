@@ -1,15 +1,20 @@
 <form class="form" action="/teas" method="post">
+
   <label for="name"><h3>Name:</h3></label>
   <input type="text" name="name" required="true"><br>
+
   <label for="aka"><h3>Alternate Name:</h3></label>
   <input type="text" name="aka" required="true"><br>
+
   <label for="details"><h3>Details:</h3></label>
   <input type="text" name="details" required="true"><br>
-  <p><input type="radio" name="type">Black</p>
-  <p><input type="radio" name="type">Green</p>
-  <p><input type="radio" name="type">Oolong</p>
-  <p><input type="radio" name="type">Puerh</p>
-  <p><input type="radio" name="type">White</p>
-  <p><input type="radio" name="type">Yellow</p>
+
+  <p><input type="radio" name="oxidation" value="black">Black</p>
+  <p><input type="radio" name="oxidation" value="green">Green</p>
+  <p><input type="radio" name="oxidation" value="oolong">Oolong</p>
+  <p><input type="radio" name="oxidation" value="puerh">Puerh</p>
+  <p><input type="radio" name="oxidation" value="white">White</p>
+  <p><input type="radio" name="oxidation" value="yellow">Yellow</p>
+
   <h3><input type="submit" value="Create Tea"></h3>
 </form>

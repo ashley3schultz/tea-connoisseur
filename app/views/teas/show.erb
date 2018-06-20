@@ -1,40 +1,39 @@
 <div class="header">
-  <h1><%=current_user%></h1>
+  <h1><%=current_user.username%></h1>
   <em><h2>The Place Where Tea Enthusiast Meet</h2></em>
 </div>
 
-<% if @tea.user_id == current_user.id %>
-  <div class="owner menu">
-  <a href="/teas/<%=@tea.id%>/edit"><button type="button" name="button" class="button"><h3>Edit Tea</h3></button></a>
-  <a href="/teas/<%=@tea.id%>/delete"><button type="button" name="button" class="button"><h3>Delete Tea</h3></button></a>
-  </div>
-<% end %>
+<h1><%=@tea.name%><em><%=@tea.aka if @tea.aka != "N/A"%></em></h1>
 
-<h1><%=@tea.name%></h1>
-<em><h2><%=@tea.aka%></h2></em>
-<h3><%=@tea.type%></h3>
+<h3><%=@tea.oxidation%></h3>
 <p><%=@tea.details%></p>
 
 <div class="tea posts">
   <h3>posts</h3>
   <ol>
     <% @tea.posts.each do |p| %>
-      <li><a href="/posts/<%= p.id %>"><h3><%=p.contenet%></h3><br></a><a href="/users/<%=p.user_id%>"><%=p.user.username%></a></li>
+      <li><a href="/posts/<%=p.id%>"><strong><%=p.content%></strong> - </a><a href="/users/<%=p.user_id%>"><em><%=p.user.username%></em></a></li>
       <% if p.user_id == current_user.id %>
-        <div class="owner menu">
-        <a href="/posts/<%=p.id%>/edit"><button type="button" name="button" class="button"><h3>Edit Post</h3></button></a>
-        <a href="/posts/<%=p.id%>/delete"><button type="button" name="button" class="button"><h3>Delete Post</h3></button></a>
-        </div>
+        <a href="/posts/<%=p.id%>/edit"><h6>edit</a> / <a href="/posts/<%=p.id%>/delete">delete</h6></a>
       <% end %>
     <%end%>
   </ol>
 </div>
 
+<br><br><br>
+
 <form class="form" action="/posts" method="post">
-  <label><%=current_user.username%></label>
-  <label name="tea" value"<%=@tea%>"></label>
-  <input type="text" name="tea" value"<%=@tea%>"required="true"><br>
-  <label for="content"><h3>Content:</h3></label>
-  <input type="text" name="content" required="true"><br>
-  <h3><input type="submit" value="Add Post"></h3>
+  <input type="hidden" name="tea_id" value="<%= @tea.id %>"><input type="hidden" name="user_id" value="<%= current_user.id %>">
+  <label><%=current_user.username%></label><br>
+  <input type="text" name="content" required="true">
+  <input type="submit" value="Add Post">
 </form>
+
+<br><br><br>
+
+<% if @tea.user.id == current_user.id %>
+  <div class="owner menu">
+  <a href="/teas/<%=@tea.id%>/edit"><button type="button" name="button" class="button"><h3>Edit Tea</h3></button></a>
+  <a href="/teas/<%=@tea.id%>/delete"><button type="button" name="button" class="button"><h3>Delete Tea</h3></button></a>
+  </div>
+<% end %>

@@ -18,8 +18,9 @@ class TeaController < ApplicationController
 
   post '/teas' do
     if logged_in?
-      @tea = Tea.create(params)
-      redirect '/teas/#{@tea.id}'
+      @tea = Tea.finder(params) || Tea.create(params)
+      current_user.teas << @tea
+      redirect "/teas/#{@tea.id}"
     else
       redirect '/login'
     end
@@ -36,7 +37,7 @@ class TeaController < ApplicationController
   post '/teas/:id' do
     if logged_in? && owner?
       #### add owner check
-      @tea  Tea.find(params[:id])
+      @tea = Tea.find(params[:id])
       @tea.update(params)
       redirect '/teas/#{@tea.id}'
     else
@@ -45,7 +46,7 @@ class TeaController < ApplicationController
   end
 
   get '/teas/:id' do
-    Tea.find(params[:id])
+    @tea = Tea.find(params[:id])
     if logged_in?
       erb :'teas/show'
     else

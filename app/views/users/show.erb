@@ -6,14 +6,14 @@
 <div class="users teas">
   <h3>Teas</h3>
   <ol>
-    <% c@user.teas.each do |t| %>
+    <% @user.teas.each do |t| %>
       <li><a href="/teas/<%= t.id %>"><h3><%= "#{t.name} - #{t.posts.size} posts" %></h3></a></li>
     <%end%>
   </ol>
 </div>
 
 <div class="users posts">
-  <h3>posts</h3>
+  <h3>Posts</h3>
   <ol>
     <% @user.posts.each do |p| %>
       <% t = Tea.find(p.tea_id) %>
