@@ -3,7 +3,7 @@
   <em><h2>The Place Where Tea Enthusiast Meet</h2></em>
 </div>
 
-<h1><%=@tea.name%><em><%=@tea.aka if @tea.aka != "N/A"%></em></h1>
+<h1><%=@tea.name%><em> ~ <%=@tea.aka if @tea.aka != "N/A"%></em></h1>
 
 <h3><%=@tea.oxidation%></h3>
 <p><%=@tea.details%></p>
@@ -12,7 +12,7 @@
   <h3>posts</h3>
   <ol>
     <% @tea.posts.each do |p| %>
-      <li><a href="/posts/<%=p.id%>"><strong><%=p.content%></strong> - </a><a href="/users/<%=p.user_id%>"><em><%=p.user.username%></em></a></li>
+      <li><strong><%=p.content%></strong> - </a><a href="/users/<%=p.user_id%>"><em><%=p.user.username%></em></a></li>
       <% if p.user_id == current_user.id %>
         <a href="/posts/<%=p.id%>/edit"><h6>edit</a> / <a href="/posts/<%=p.id%>/delete">delete</h6></a>
       <% end %>

@@ -1,5 +1,5 @@
 <form class="form" action="/posts/<%=@post.id%>" method="post">
-  <label><%=content%></label><br>
-  <input type="text" name="content" required="true">
+  <h1><label>Content</label></h1>
+  <h3><input type="text" name="content" value="<%=@post.content%>" required="true"></h3>
   <input type="submit" value="Update Post">
 </form>

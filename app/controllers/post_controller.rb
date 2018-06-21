@@ -11,9 +11,9 @@ class PostController < ApplicationController
     end
   end
 
-  get 'posts/:id/edit' do
-    if logged_in?
-      @post = Post.find(param[:id])
+  get '/posts/:id/edit' do
+    @post = Post.find(params[:id])
+    if logged_in? && owner?(@post)
       erb :'posts/edit'
     else
       redirect '/login'
@@ -21,12 +21,12 @@ class PostController < ApplicationController
   end
 
   post '/posts/:id' do
-    @post = Post.find(param[:id])
-    if logged_in? && @post.owner?
-      @post.update(params)
-      redirect "/teas/#{@tea.id}"
+    @post = Post.find(params[:id])
+    if logged_in? && owner?(@post)
+      @post.update(content: params[:content])
+      redirect "/teas/#{@post.tea.id}"
     else
-      redirect 'login' do
+      redirect 'login'
     end
   end
 
