@@ -28,7 +28,7 @@ class TeaController < ApplicationController
 
   get '/teas/:id/edit' do
     @tea =Tea.find(params[:id])
-    if logged_in? && owner?(@tea)
+    if valid_owner?(@tea)
       erb :'teas/edit'
     else
       redirect '/login'
@@ -37,7 +37,7 @@ class TeaController < ApplicationController
 
   post '/teas/:id' do
     @tea = Tea.find(params[:id])
-    if logged_in? && owner?(@tea)
+    if valid_owner?(@tea)
       @tea.update(params)
       redirect "/teas/#{@tea.id}"
     else
@@ -57,7 +57,7 @@ class TeaController < ApplicationController
   use Rack::MethodOverride
   delete '/teas/:id/delete' do
     @tea = Tea.find(params[:id])
-    if logged_in? && owner?(@tea)
+    if valid_owner?(@tea)
       @tea.posts.each { |p| p.destroy}
       @tea.destroy
       redirect '/teas'
