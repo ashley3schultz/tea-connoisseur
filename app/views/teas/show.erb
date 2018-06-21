@@ -9,7 +9,7 @@
     <% @tea.posts.each do |p| %>
       <div class="post-line">
       <li><strong><%=p.content%></strong> - </a><a href="/users/<%=p.user_id%>"><em><%=p.user.username%></em></a></li>
-      <% if p.user_id == current_user.id %>
+      <% if valid_owner?(p) %>
         <form action="/posts/<%=p.id%>/delete" method="post">
           <input type="hidden" name="_method" value="delete">
           <a href="/posts/<%=p.id%>/edit"><button type="button" name="button">edit</button></a>
