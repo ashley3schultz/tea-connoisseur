@@ -46,7 +46,6 @@ class UserController < ApplicationController
   end
 
   get '/users/:id' do
-    binding.pry
     if logged_in?
       @user = User.find(params[:id])
       erb :'users/show'

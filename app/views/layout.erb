@@ -19,6 +19,14 @@
       <h1>Tea Connoisseur</h1>
       <em><h2>The Place Where Tea Enthusiast Meet</h2></em>
     </div>
+    <% if logged_in?%>
+    <div class="menu">
+      <a href="/teas"><button type="button" name="button" class="button"><h3>Browse Teas</h3></button></a>
+      <a href="/users/<%=current_user.id%>"><button type="button" name="button" class="button"><h3>My Profile</h3></button></a>
+      <a href="/logout"><button type="button" name="button" class="button"><h3>Logout</h3></button></a>
+      <a href="/teas/new"><button type="button" name="button" class="button"><h3>Add A Tea</h3></button></a>
+    </div>
+    <% end %>
 
       <%= yield %>
 
