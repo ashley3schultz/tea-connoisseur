@@ -3,8 +3,8 @@ class PostController < ApplicationController
 
   post '/posts' do
     if logged_in?
-      @post = Post.create(params)
       @tea = Tea.find(params[:tea_id])
+      @post = Post.create(content: params[:content], user_id: current_user.id, tea_id: @tea.id)
       redirect "/teas/#{@tea.id}"
     else
       redirect '/login'

@@ -24,7 +24,7 @@
 <br><br><br>
 <div class="post-line">
 <form class="form" action="/posts" method="post">
-  <input type="hidden" name="tea_id" value="<%= @tea.id %>"><input type="hidden" name="user_id" value="<%= current_user.id %>">
+  <input type="hidden" name="tea_id" value="<%= @tea.id %>">
   <label><%=current_user.username%></label><br>
   <input type="text" name="content" required="true">
   <input type="submit" value="Add Post">
@@ -33,7 +33,7 @@
 
 <br><br><br>
 
-<% if owner?(@tea) %>
+<% if valid_owner?(@tea) %>
   <form action="/teas/<%=@tea.id%>/delete" method="post">
     <input type="hidden" name="_method" value="delete">
     <a href="/teas/<%=@tea.id%>/edit"><button type="button" name="button">Edit Tea</button></a>
