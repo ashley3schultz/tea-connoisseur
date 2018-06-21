@@ -3,10 +3,11 @@
 <h3><%=@tea.oxidation%></h3>
 <p><%=@tea.details%></p>
 
-<div class="tea posts">
-  <h3>posts</h3>
+<div class="post-line">
+  <h2>posts</h2>
   <ol>
     <% @tea.posts.each do |p| %>
+      <div class="post-line">
       <li><strong><%=p.content%></strong> - </a><a href="/users/<%=p.user_id%>"><em><%=p.user.username%></em></a></li>
       <% if p.user_id == current_user.id %>
         <form action="/posts/<%=p.id%>/delete" method="post">
@@ -15,18 +16,20 @@
           <input type="submit" value="delete">
         </form>
       <% end %>
+      </div>
     <%end%>
   </ol>
 </div>
 
 <br><br><br>
-
+<div class="post-line">
 <form class="form" action="/posts" method="post">
   <input type="hidden" name="tea_id" value="<%= @tea.id %>"><input type="hidden" name="user_id" value="<%= current_user.id %>">
   <label><%=current_user.username%></label><br>
   <input type="text" name="content" required="true">
   <input type="submit" value="Add Post">
 </form>
+</div>
 
 <br><br><br>
 

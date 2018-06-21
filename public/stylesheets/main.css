@@ -13,10 +13,55 @@
 
   /* --- Welcome Page Styles --- */
   body {
-    background-color: lightblue;
+    background: url(../images/pexels-photo-958169.jpeg) no-repeat top center;
     color: #333;
-    font-family: Sans-Serif;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
     line-height: 18px;
+  }
+
+  .header {
+    text-align: center;
+  }
+
+  .button {
+    align: center;
+    width: 236px;
+    padding: 7px;
+  }
+
+  .menu {
+    border-bottom: 2px solid #ccc;
+  }
+
+  .post-line {
+    background: #eee;
+    padding: 2.25%;
+    margin: 2.25%, 5%;
+  }
+
+  .profile-posts {
+    background: #eee;
+    padding: 2.25%;
+    margin: 2.25%, 5%;
+  }
+
+  .profile-teas {
+    background: #eee;
+    padding: 2.25%;
+    margin: 2.25%, 5%;
+  }
+
+  .profile-connections {
+    background: #eee;
+    padding: 2.25%;
+    margin: 2.25%, 5%;
+  }
+
+  .tea-type {
+    background: #fff;
+    padding: 2.25%;
+    margin: 2.25%, 5%;
+    border-bottom: 2px solid #ccc;
   }
 
   .wrapper {
@@ -36,7 +81,7 @@
   }
 
   h2 {
-    border-bottom: 2px solid #ccc;
+    /* border-bottom: 2px solid #ccc; */
     font-size: 24px;
     line-height: 36px;
     margin-bottom: 16px;
