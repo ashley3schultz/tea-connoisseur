@@ -26,8 +26,8 @@ class ApplicationController < Sinatra::Base
       !!session[:user_id]
     end
 
-    def owner?(obj)
-      session[:user_id] == obj.user_id
+    def valid_owner?(obj)
+      logged_in? && session[:user_id] == obj.user_id
     end
   end
 end
