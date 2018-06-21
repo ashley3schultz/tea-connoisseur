@@ -9,7 +9,9 @@ class UserController < ApplicationController
   end
 
   post '/signup' do
-    if User.find_by(username: params[:username]) || User.find_by(email: params[:email])
+    if logged_in?
+      redirect '/teas'
+    elsif User.find_by(username: params[:username]) || User.find_by(email: params[:email])
       redirect '/login'
     else
       @user =  User.create(params)
@@ -27,20 +29,30 @@ class UserController < ApplicationController
   end
 
   post '/login' do
-    @user = User.find_by(username: params[:username])
-    @user.authenticate(params[:password])
-    session[:user_id] = @user.id
-    redirect '/teas'
+    if logged_in?
+      @user = User.find_by(username: params[:username])
+      @user.authenticate(params[:password])
+      session[:user_id] = @user.id
+      redirect '/teas'
+    else
+      erb :'users/login'
+    end
   end
 
   get '/logout' do
-    session.clear
+    if logged_in?
+      session.clear
+    end
     redirect '/'
   end
 
   get '/users/:id' do
-    @user = User.find(params[:id])
-    erb :'users/show'
+    if logged_in?
+      @user = User.find(params[:id])
+      erb :'users/show'
+    else
+      erb :'users/login'
+    end
   end
 
 end

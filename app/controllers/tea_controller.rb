@@ -35,9 +35,8 @@ class TeaController < ApplicationController
   end
 
   post '/teas/:id' do
-    if logged_in? && owner?
-      #### add owner check
-      @tea = Tea.find(params[:id])
+    @tea = Tea.find(params[:id])
+    if logged_in? && @tea.owner?
       @tea.update(params)
       redirect '/teas/#{@tea.id}'
     else

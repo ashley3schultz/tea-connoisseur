@@ -10,7 +10,11 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/" do
-    erb :index
+    if logged_in?
+      redirect '/teas'
+    else
+      erb :index
+    end
   end
 
   helpers do
@@ -20,6 +24,10 @@ class ApplicationController < Sinatra::Base
 
     def logged_in?
       !!session[:user_id]
+    end
+
+    def owner?
+      session[:user_id] == self.user_id
     end
   end
 end
