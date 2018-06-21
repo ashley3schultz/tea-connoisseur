@@ -13,7 +13,7 @@ class PostController < ApplicationController
 
   get '/posts/:id/edit' do
     @post = Post.find(params[:id])
-    if logged_in? && owner?(@post)
+    if valid_owner?(@post)
       erb :'posts/edit'
     else
       redirect '/login'
@@ -22,7 +22,7 @@ class PostController < ApplicationController
 
   post '/posts/:id' do
     @post = Post.find(params[:id])
-    if logged_in? && owner?(@post)
+    if valid_owner?(@post)
       @post.update(content: params[:content])
       redirect "/teas/#{@post.tea.id}"
     else
@@ -33,7 +33,7 @@ class PostController < ApplicationController
   use Rack::MethodOverride
   delete '/posts/:id/delete' do
     @post = Post.find(params[:id])
-    if logged_in? && owner?(@post)
+    if valid_owner?(@post)
       @post.delete
       redirect '/teas'
     else
