@@ -26,8 +26,8 @@
 <form class="form" action="/posts" method="post">
   <input type="hidden" name="tea_id" value="<%= @tea.id %>">
   <label><%=current_user.username%></label><br>
-  <input type="text" name="content" required="true">
-  <input type="submit" value="Add Post">
+  <input type="text" name="content" required="true" class="text-box">
+  <input type="submit" value="Add Post" class="text-box">
 </form>
 </div>
 
@@ -36,7 +36,7 @@
 <% if valid_owner?(@tea) %>
   <form action="/teas/<%=@tea.id%>/delete" method="post">
     <input type="hidden" name="_method" value="delete">
-    <a href="/teas/<%=@tea.id%>/edit"><button type="button" name="button">Edit Tea</button></a>
-    <input type="submit" value="Delete Tea">
+    <a href="/teas/<%=@tea.id%>/edit"><button type="button" name="button" class="text-box">Edit Tea</button></a>
+    <input type="submit" value="Delete Tea" class="text-box">
   </form>
 <% end %>

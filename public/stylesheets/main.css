@@ -33,15 +33,24 @@
     text-align: center;
   }
 
+  form {
+    width: 30% auto;
+  }
 
-  .menu {
-    border-bottom: 2px solid #ccc;
+  .text-box {
+    font-size: 1.5em;
+    padding: 5px;
+    margin: 5px auto;
   }
 
   .post-line {
     background: #eee;
     padding: 2.25%;
     margin: 2.25%, 5%;
+  }
+
+  .line-break {
+    border-top: 2px solid #ccc;
   }
 
   .profile-posts {
