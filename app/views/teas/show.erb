@@ -25,8 +25,11 @@
 <div class="post-line">
 <form class="form" action="/posts" method="post">
   <input type="hidden" name="tea_id" value="<%= @tea.id %>">
+  <% if @msg %>
+    <h2 class="error"><%= @msg.gsub("_"," ") %></h2>
+  <% end %>
   <label><%=current_user.username%></label><br>
-  <input type="text" name="content" required="true" class="text-box">
+  <input type="text" name="content" class="text-box">
   <input type="submit" value="Add Post" class="text-box">
 </form>
 </div>

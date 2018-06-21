@@ -40,8 +40,7 @@ class TeaController < ApplicationController
 
   get '/teas/:id/edit' do
     p_id = params[:id].split('-')[0].to_i
-    @msg = params[:id].split('-')[1].gsub("_"," ")
-    binding.pry
+    @msg = params[:id].split('-')[1]
     @tea =Tea.find(p_id)
     if valid_owner?(@tea)
       erb :'teas/edit'
@@ -66,7 +65,9 @@ class TeaController < ApplicationController
   end
 
   get '/teas/:id' do
-    @tea = Tea.find(params[:id])
+    p_id = params[:id].split('-')[0].to_i
+    @msg = params[:id].split('-')[1]
+    @tea = Tea.find(p_id)
     if logged_in?
       erb :'teas/show'
     else
