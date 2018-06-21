@@ -14,9 +14,14 @@ class UserController < ApplicationController
     elsif User.find_by(username: params[:username]) || User.find_by(email: params[:email])
       redirect '/login'
     else
-      @user =  User.create(params)
-      session[:user_id] = @user.id
-      redirect '/teas'
+      if !params[:username].empty? && !params[:email].empty? && !params[:password].empty?
+        @user =  User.create(params)
+        session[:user_id] = @user.id
+        redirect '/teas'
+      else
+        @msg = "Please try again, you must enter an email, usernme and password to signup."
+        erb :'users/signup'
+      end
     end
   end
 
@@ -34,7 +39,8 @@ class UserController < ApplicationController
       session[:user_id] = @user.id
       redirect '/teas'
     else
-      redirect '/login'
+      @msg = "Please try again, you must enter a valid usernme and password to login."
+      erb :'users/login'
     end
   end
 

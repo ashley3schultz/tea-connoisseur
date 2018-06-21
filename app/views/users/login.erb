@@ -1,4 +1,6 @@
-
+<% if @msg %>
+  <h2 class="error"><%= @msg %></h2>
+<% end %>
 <div class="line-break">
   <div class="align-center">
     <form class="form" action="/login" method="post">
