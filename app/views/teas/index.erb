@@ -2,42 +2,42 @@
   <ul>
   <div class="tea-type" id="black">
     <h2>Black Teas</h2>
-    <%Tea.type("Black").each do |t|%>
+    <%@black.each do |t|%>
       <li><a href="/teas/<%=t.id%>"><h3><%=t.name%></h3></a></li>
     <%end%>
   </div>
 
   <div class="tea-type" id="green">
     <h2>Green Teas</h2>
-    <%Tea.type("Green").each do |t|%>
+    <%@green.each do |t|%>
       <li><a href="/teas/<%=t.id%>"><h3><%=t.name%></h3></a></li>
     <%end%>
   </div>
 
   <div class="tea-type" id="oolong">
     <h2>Oolong Teas</h2>
-    <%Tea.type("Oolong").each do |t|%>
+    <%@oolong.each do |t|%>
       <li><a href="/teas/<%=t.id%>"><h3><%=t.name%></h3></a></li>
     <%end%>
   </div>
 
   <div class="tea-type" id="puerh">
     <h2>Puerh Teas</h2>
-    <%Tea.type("Puerh").each do |t|%>
+    <%@puerh.each do |t|%>
       <li><a href="/teas/<%=t.id%>"><h3><%=t.name%></h3></a></li>
     <%end%>
   </div>
 
   <div class="tea-type" id="white">
     <h2>White Teas</h2>
-    <%Tea.type("White").each do |t|%>
+    <%@white.each do |t|%>
       <li><a href="/teas/<%=t.id%>"><h3><%=t.name%></h3></a></li>
     <%end%>
   </div>
 
   <div class="tea-type" id="yellow">
     <h2>Yellow Teas</h2>
-    <%Tea.type("Yellow").each do |t|%>
+    <%@yellow.each do |t|%>
       <li><a href="/teas/<%=t.id%>"><h3><%=t.name%></h3></a></li>
     <%end%>
   </div>
