@@ -1,8 +1,3 @@
-<div class="header">
-  <h1><%=current_user.username%></h1>
-  <em><h2>The Place Where Tea Enthusiast Meet</h2></em>
-</div>
-
 <h1><%=@tea.name%><em> ~ <%=@tea.aka if @tea.aka != "N/A"%></em></h1>
 
 <h3><%=@tea.oxidation%></h3>
@@ -14,7 +9,11 @@
     <% @tea.posts.each do |p| %>
       <li><strong><%=p.content%></strong> - </a><a href="/users/<%=p.user_id%>"><em><%=p.user.username%></em></a></li>
       <% if p.user_id == current_user.id %>
-        <a href="/posts/<%=p.id%>/edit"><h6>edit</a> / <a href="/posts/<%=p.id%>/delete">delete</h6></a>
+        <form action="/posts/<%=p.id%>/delete" method="post">
+          <input type="hidden" name="_method" value="delete">
+          <a href="/posts/<%=p.id%>/edit"><button type="button" name="button">edit</button></a>
+          <input type="submit" value="delete">
+        </form>
       <% end %>
     <%end%>
   </ol>
@@ -31,9 +30,10 @@
 
 <br><br><br>
 
-<% if @tea.user.id == current_user.id %>
-  <div class="owner menu">
-  <a href="/teas/<%=@tea.id%>/edit"><button type="button" name="button" class="button"><h3>Edit Tea</h3></button></a>
-  <a href="/teas/<%=@tea.id%>/delete"><button type="button" name="button" class="button"><h3>Delete Tea</h3></button></a>
-  </div>
+<% if owner?(@tea) %>
+  <form action="/teas/<%=@tea.id%>/delete" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <a href="/teas/<%=@tea.id%>/edit"><button type="button" name="button">Edit Tea</button></a>
+    <input type="submit" value="Delete Tea">
+  </form>
 <% end %>

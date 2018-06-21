@@ -30,5 +30,16 @@ class PostController < ApplicationController
     end
   end
 
+  use Rack::MethodOverride
+  delete '/posts/:id/delete' do
+    @post = Post.find(params[:id])
+    if logged_in? && owner?(@post)
+      @post.delete
+      redirect '/teas'
+    else
+      redirect '/login'
+    end
+  end
+
 
 end

@@ -54,4 +54,17 @@ class TeaController < ApplicationController
     end
   end
 
+  use Rack::MethodOverride
+  delete '/teas/:id/delete' do
+    @tea = Tea.find(params[:id])
+    if logged_in? && owner?(@tea)
+      @tea.posts.each { |p| p.destroy}
+      @tea.destroy
+      redirect '/teas'
+    else
+      redirect '/login'
+    end
+  end
+
+
 end

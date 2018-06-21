@@ -1,12 +1,4 @@
-<div class="header">
-  <h1>Tea Connoisseur</h1>
-  <em><h2>The Place Where Tea Enthusiast Meet</h2></em>
-</div>
-
-<h1><%=@user.username%></h1>
-
-<h2></h2>
-
+<h1><%=@user.username%></h1><h2></h2>
 <div class="users teas">
   <h1>Teas</h1>
   <ol>
@@ -15,9 +7,7 @@
     <%end%>
 
   </ol>
-</div>
-
-<h2></h2>
+</div><h2></h2>
 
 <div class="users posts">
   <h1>Posts</h1>
@@ -27,9 +17,7 @@
       <li><a href="/teas/<%= t.id %>"><h3><%=t.name%></a> ~ <%=p.content%></h3></li>
     <%end%>
   </ol>
-</div>
-
-<h2></h2>
+</div><h2></h2>
 
 <div class="users connections">
   <h1>Connections</h1>
