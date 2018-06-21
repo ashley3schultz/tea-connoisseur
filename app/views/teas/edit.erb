@@ -6,11 +6,11 @@
   <label for="details"><h3>Details:</h3></label>
   <input type="text" name="details" required="true" value="<%=@tea.details%>"><br><br>
 
-  <p><input type="radio" name="oxidation" value="Black" <%='checked' if @tea.oxidation == "black"%>">Black</p>
-  <p><input type="radio" name="oxidation" value="Green" "<%='checked' if @tea.oxidation == "Green"%>">Green</p>
-  <p><input type="radio" name="oxidation" value="Oolong" "<%='checked' if @tea.oxidation == "Oolong"%>">Oolong</p>
-  <p><input type="radio" name="oxidation" value="Puerh" "<%='checked' if @tea.oxidation == "Puerh"%>">Puerh</p>
-  <p><input type="radio" name="oxidation" value="White" "<%='checked' if @tea.oxidation == "White"%>">White</p>
-  <p><input type="radio" name="oxidation" value="Yellow" "<%='checked' if @tea.oxidation == "Yellow"%>">Yellow</p>
+  <p><input type="radio" name="oxidation" value="Black" <%='checked' if @tea.oxidation == "black"%>>Black</p>
+  <p><input type="radio" name="oxidation" value="Green" <%='checked' if @tea.oxidation == "Green"%>>Green</p>
+  <p><input type="radio" name="oxidation" value="Oolong" <%='checked' if @tea.oxidation == "Oolong"%>>Oolong</p>
+  <p><input type="radio" name="oxidation" value="Puerh" <%='checked' if @tea.oxidation == "Puerh"%>>Puerh</p>
+  <p><input type="radio" name="oxidation" value="White" <%='checked' if @tea.oxidation == "White"%>>White</p>
+  <p><input type="radio" name="oxidation" value="Yellow" <%='checked' if @tea.oxidation == "Yellow"%>>Yellow</p>
   <h3><input type="submit" value="Update Tea"></h3>
 </form>
