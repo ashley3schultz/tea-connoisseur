@@ -13,7 +13,7 @@
 
   /* --- Welcome Page Styles --- */
   body {
-    background: url(../images/pexels-photo-958169.jpeg) no-repeat top center;
+    background: url(../images/pexels-photo-958169.jpeg) no-repeat center center;
     color: #333;
     font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
     line-height: 18px;
@@ -24,10 +24,15 @@
   }
 
   .button {
-    align: center;
     width: 236px;
     padding: 7px;
   }
+
+  .align-center {
+    overflow:auto;
+    text-align: center;
+  }
+
 
   .menu {
     border-bottom: 2px solid #ccc;
