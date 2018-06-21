@@ -1,10 +1,13 @@
+<% if @msg %>
+  <h2 class="error"><%= @msg %></h2>
+<% end %>
 <form class="form" action="/teas/<%=@tea.id%>" method="post">
   <label for="name"><h3>Name:</h3></label>
-  <input type="text" name="name" required="true" value="<%=@tea.name%>" class="text-box"><br>
+  <input type="text" name="name" value="<%=@tea.name%>" class="text-box"><br>
   <label for="aka"><h3>Alternate Name:</h3></label>
-  <input type="text" name="aka" required="true" value="<%=@tea.aka%>" class="text-box"><br>
+  <input type="text" name="aka" value="<%=@tea.aka%>" class="text-box"><br>
   <label for="details"><h3>Details:</h3></label>
-  <input type="text" name="details" required="true" value="<%=@tea.details%>" class="text-box"><br><br>
+  <input type="text" name="details" value="<%=@tea.details%>" class="text-box"><br><br>
 
   <p><input type="radio" name="oxidation" value="Black" <%='checked' if @tea.oxidation == "Black"%>>Black</p>
   <p><input type="radio" name="oxidation" value="Green" <%='checked' if @tea.oxidation == "Green"%>>Green</p>

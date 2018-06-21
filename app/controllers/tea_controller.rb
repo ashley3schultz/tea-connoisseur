@@ -25,16 +25,24 @@ class TeaController < ApplicationController
 
   post '/teas' do
     if logged_in?
-      @tea = Tea.finder(params) || Tea.create(params)
-      current_user.teas << @tea
-      redirect "/teas/#{@tea.id}"
+      if !params[:name].empty? && !params[:oxidation].empty?
+        @tea = Tea.finder(params) || Tea.create(params)
+        current_user.teas << @tea
+        redirect "/teas/#{@tea.id}"
+      else
+        @msg = "You must enter a tea name and select a tea type to create a tea."
+        erb :'teas/new'
+      end
     else
       redirect '/login'
     end
   end
 
   get '/teas/:id/edit' do
-    @tea =Tea.find(params[:id])
+    p_id = params[:id].split('-')[0].to_i
+    @msg = params[:id].split('-')[1].gsub("_"," ")
+    binding.pry
+    @tea =Tea.find(p_id)
     if valid_owner?(@tea)
       erb :'teas/edit'
     else
@@ -45,8 +53,13 @@ class TeaController < ApplicationController
   post '/teas/:id' do
     @tea = Tea.find(params[:id])
     if valid_owner?(@tea)
-      @tea.update(params)
-      redirect "/teas/#{@tea.id}"
+      if !params[:name].empty? && !params[:oxidation].empty?
+        @tea.update(params)
+        redirect "/teas/#{@tea.id}"
+      else
+        @msg = "You_must_enter_a_tea_name_and_select_a_tea_type_to_save_this_tea."
+        redirect "/teas/#{@tea.id}-#{@msg}/edit"
+      end
     else
       redirect '/login'
     end

@@ -1,5 +1,6 @@
-
-
+<% if @msg %>
+  <h2 class="error"><%= @msg %></h2>
+<% end %>
 <form class="form" action="/teas" method="post">
 
   <label for="name"><h3>Name:</h3></label>
