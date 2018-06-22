@@ -3,6 +3,17 @@ The Place Where Tea Enthusiast Meet
 This application is built to show connections based on tea post and reviews. If you and another user have reviewed the same tea, they will show up as a connection. You can add teas to the site and make posts on any tea.
 You can edit teas and posts after they have been posted as long as you were the creator and you are logged in.
 
+Installation
+from the command line run:
+bundle install
+shotgun
+
+Site Direction
+copy the link printed in the console and go to that url.
+You may choose to sign up or log in if you already created an account
+Add teas and post an any tea in the site
+You will build tea connections based on the posts you make.
+
 Contributing
 Bug reports and pull requests are welcome on GitHub at https://github.com/'ashley3schultz'/tea-connoisuer. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the Contributor Covenant code of conduct.
 
