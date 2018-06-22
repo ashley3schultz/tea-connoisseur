@@ -2,13 +2,7 @@ class TeaController < ApplicationController
 
   get '/teas' do
     if logged_in?
-      teas = Tea.sort_by_type
-      @black = teas[:Black]
-      @green = teas[:Green]
-      @oolong = teas[:Oolong]
-      @puerh = teas[:Puerh]
-      @white = teas[:White]
-      @yellow = teas[:Yellow]
+      @teas = Tea.sort_by_type
       erb :'teas/index'
     else
       redirect '/login'

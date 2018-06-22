@@ -1,45 +1,13 @@
 <div class="home-teas">
-  <ul>
-  <div class="tea-type" id="black">
-    <h2>Black Teas</h2>
-    <%@black.each do |t|%>
-      <li><a href="/teas/<%=t.id%>"><h3><%=t.name%></h3></a></li>
-    <%end%>
-  </div>
+<ul>
+<%@teas.each do |k, v| %>
+<div class="tea-type">
+  <h2><%=k%> Teas</h2>
 
-  <div class="tea-type" id="green">
-    <h2>Green Teas</h2>
-    <%@green.each do |t|%>
-      <li><a href="/teas/<%=t.id%>"><h3><%=t.name%></h3></a></li>
-    <%end%>
-  </div>
-
-  <div class="tea-type" id="oolong">
-    <h2>Oolong Teas</h2>
-    <%@oolong.each do |t|%>
-      <li><a href="/teas/<%=t.id%>"><h3><%=t.name%></h3></a></li>
-    <%end%>
-  </div>
-
-  <div class="tea-type" id="puerh">
-    <h2>Puerh Teas</h2>
-    <%@puerh.each do |t|%>
-      <li><a href="/teas/<%=t.id%>"><h3><%=t.name%></h3></a></li>
-    <%end%>
-  </div>
-
-  <div class="tea-type" id="white">
-    <h2>White Teas</h2>
-    <%@white.each do |t|%>
-      <li><a href="/teas/<%=t.id%>"><h3><%=t.name%></h3></a></li>
-    <%end%>
-  </div>
-
-  <div class="tea-type" id="yellow">
-    <h2>Yellow Teas</h2>
-    <%@yellow.each do |t|%>
-      <li><a href="/teas/<%=t.id%>"><h3><%=t.name%></h3></a></li>
-    <%end%>
-  </div>
-  </ul>
+  <%v.each do |t|%>
+    <li><a href="/teas/<%=t.id%>"><h3><%=t.name%></h3></a></li>
+  <%end %>
+</div>
+<%end %>
+</ul>
 </div>
