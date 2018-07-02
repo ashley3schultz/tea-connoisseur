@@ -17,7 +17,7 @@ Tea.create([
     {name: "Yunnan Black", aka:  "Chen Hong Cha", oxidation: "Black", details: "Bright, brisk, black tea balanced by warming dry hay notes and a whisper of grape.", user_id: 4},
     {name: "Ruby Black", aka:  "Sun Moon Lake", oxidation: "Black", details: "Captivating Black tea unlike any other tea available.", user_id: 4},
     {name: "Gleaming Brow", aka:  "Jin Jun Mei", oxidation: "Black", details: "Highest grade Wuyi tea picked only a few days per year.", user_id: 4},
-    {name: "Keemun", aka: "Qimen Hao Ya", oxidation: "Black", user_id: 4},
+    {name: "Keemun", aka: "Qimen Hao Ya", oxidation: "Black", details: "Top shelf, hand-rolled Keemun Black. Malted milk, caramel, fermented apricots, cedar wood and rose.", user_id: 4},
     {name: "Little Tong Mu", aka:  "Tong Mu Zhengshan Xiaozhong", oxidation: "Black", details: "Unsmoked Lapsang from the famed Tong Mu village.", user_id: 4},
     {name: "Young Gushu", aka:  "Bing Dao 600 Year Old Gushu Raw", oxidation: "Puerh", details: "Bright and gentle PuErh made from ancient tree leaves picked and blended from the East and West sides of Bingdao.", user_id: 5},
     {name: "Purple Bud", aka:  "Ye Sheng Zi Ya", oxidation: "Puerh", details: "Made from buds of the Purple trees in Yunnan.", user_id: 5},
