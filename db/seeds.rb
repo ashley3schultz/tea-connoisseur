@@ -1,3 +1,13 @@
+
+#User.destroy_all
+  User.create([
+    {email: "user1@email.com", username: "user1", password: "password1"},
+    {email: "user2@email.com", username: "user2", password: "password2"},
+    {email: "user3@email.com", username: "user3", password: "password3"},
+    {email: "user4@email.com", username: "user4", password: "password4"},
+    {email: "user5@email.com", username: "user5", password: "password5"},
+    {email: "user6@email.com", username: "user6", password: "password6"}])
+#Tea.destroy_all
 Tea.create([
     {name: "Amaranth Star", oxidation: "White", details: "White tea star combined with a single red Amaranth.", user_id: 1},
     {name: "Blossoming Jewels", oxidation: "White", details: "Our selection of hand produced blossoming tea created by Chinese artisans.", user_id: 1},

@@ -19,6 +19,10 @@
     line-height: 18px;
   }
 
+  .error {
+    color: red;
+  }
+
   .header {
     text-align: center;
   }
