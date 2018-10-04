@@ -11,15 +11,12 @@ gem 'bcrypt'
 gem "tux"
 
 group :development, :test do
+  gem 'sqlite3'
   gem 'rspec'
   gem 'capybara'
   gem 'rack-test'
-  gem 'database_cleaner', git: 'https://github.com/bmabey/database_cleaner.git'
+  # gem 'database_cleaner', git: 'https://github.com/bmabey/database_cleaner.git'
   gem 'pry'
-end
-
-group :development do
-  gem 'sqlite3'
 end
 
 group :production do
