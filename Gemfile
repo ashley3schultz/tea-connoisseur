@@ -18,7 +18,7 @@ group :test do
   gem 'pry'
 end
 
-group :production do
+group :development do
   gem 'sqlite3'
 end
 
