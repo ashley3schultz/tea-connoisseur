@@ -107,7 +107,7 @@ DEPENDENCIES
   activerecord (~> 4.2, >= 4.2.6)
   bcrypt
   capybara
-  pg (~> 0.21)
+  pg (~> 0.2)
   pry
   rack-test
   rake
