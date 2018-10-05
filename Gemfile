@@ -9,9 +9,9 @@ gem 'thin'
 gem 'shotgun'
 gem 'bcrypt'
 gem "tux"
+gem 'pg','~> 0.21'
 
-group :development, :test do
-  gem 'sqlite3'
+group :test do
   gem 'rspec'
   gem 'capybara'
   gem 'rack-test'
@@ -19,8 +19,6 @@ group :development, :test do
   gem 'pry'
 end
 
-group :production do
-  gem 'pg','~> 0.21'
+group :development do
+  gem 'sqlite3'
 end
-
-
