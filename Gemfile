@@ -11,8 +11,8 @@ gem 'bcrypt'
 gem "tux"
 gem 'pg', '~> 0.2'
 
-group :test do
   gem 'rspec'
+group :test do
   gem 'capybara'
   gem 'rack-test'
   gem 'pry'
