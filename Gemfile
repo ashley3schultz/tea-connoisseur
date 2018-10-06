@@ -10,7 +10,7 @@ gem 'thin'
 gem 'shotgun'
 gem 'bcrypt'
 gem "tux"
-gem 'pg', '~> 0.2'
+gem 'pg', '~> 0.11'
 
   gem 'rspec'
 group :test do
