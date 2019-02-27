@@ -4,7 +4,7 @@ Tea Connoisseur is a social app where members can build connections based on tea
 
  [Play Game]( https://tea-connoisseur.herokuapp.com/)
 
-![screenshot](https://raw.githubusercontent.com/ashley3schultz/tea-connoisseur /master/public/images/screenshot.PNG)
+![screenshot](https://raw.githubusercontent.com/ashley3schultz/tea-connoisseur/master/public/images/screenshot.PNG)
 
 ## Application features
 
